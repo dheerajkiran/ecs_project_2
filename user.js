@@ -11,14 +11,16 @@ const options = { useNewUrlParser: true, useUnifiedTopology: true };
 
 let db;
 
-const itemSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
     id: String,
     name: String,
+    pass:String,
+    cart: Array,
 
 }, {timestamps:true});
 
 
-const itemModel = mongoose.model("items", itemSchema);
+// const userModel = mongoose.model("users", userSchema);
 
 
 const getDb = async() => {
@@ -28,12 +30,12 @@ return db ? db:await connect(uri, options)
 
 };
 
-const getItemModel = async() => {
+const getUserModel = async() => {
     const adminDb = await getDb();
 
-    return adminDb.model("items", itemSchema);
+    return adminDb.model("users", userSchema);
 };
 
 module.exports = {
-    getItemModel,
+    getUserModel,
 }
