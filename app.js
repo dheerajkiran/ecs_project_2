@@ -120,7 +120,7 @@ app.get("/cart", async(req, res)=>{
 })
 
 app.get('/', (req, res) => {
-    res.send('<h1>Node Application</h1>');
+    res.send('<h1>Welcome to STOREAL</h1>');
 });
 
 app.listen(3000, () => {
