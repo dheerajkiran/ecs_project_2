@@ -110,7 +110,7 @@ app.get("/cart", async(req, res)=>{
     else{
         // try{
             let doc = await userModel.findOneAndUpdate({id:userId}, {$push: {cart:doc_item[0]}});
-            res.send(JSON.stringify(doc));
+            res.send("Successfully added item");
         // }catch (err) {
         //     res.send("fail");
         //   }
